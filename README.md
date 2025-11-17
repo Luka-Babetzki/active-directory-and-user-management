@@ -14,7 +14,7 @@ Built a Windows Server 2022 domain environment to practise common Help Desk supp
 - File and Storage Services (for Network Shares)
 - PowerShell
 
->**Lab Environment:** See my IT homelab setup documentation for virtualisation platform and base configuration details.
+>**Lab Environment:** See my <a href="https://github.com/Luka-Babetzki/IT-home-lab">IT homelab setup documentation<a/> for virtualisation platform and base configuration details.
 
 ## Architecture
 ...
