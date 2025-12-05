@@ -8,16 +8,24 @@ Built a Windows Server 2022 domain environment to practise common Help Desk supp
 - Build out organisational groups and applying RBAC for security on a department basis 
 - Execute remote server-side commands such as password resets, etc
 
+## Prerequisites
+This project requires a baseline VMware environment. Complete the following from the [Home Lab Foundation](https://github.com/yourusername/homelab-foundation) repository:
+
+- VMware Workstation Pro installation
+- Download required OS ISOs: Windows Server 2022, Windows 11
+- Configure NAT network (VMnet8)
+
+If you haven't set up your foundation environment yet, follow the complete guide [here](https://github.com/yourusername/homelab-foundation).
+
 ## Technologies Used
 - Active Directory Domain Services (AD DS)
 - Group Policy Object (GPO)
 - File and Storage Services (for Network Shares)
 - PowerShell
 
->**Lab Environment:** See my <a href="https://github.com/Luka-Babetzki/IT-home-lab">IT homelab setup documentation<a/> for virtualisation platform and base configuration details.
+## Architecture Design
 
-## Architecture
-...
+![Network Topology Diagram](path/to/diagram.png)
 
 ## Implementation Steps
 
@@ -141,18 +149,35 @@ User Accounts Created:
 ### 6. Additional (Onboarding Script)
 ...
 
-## Key Learnings
-- How to create a domain and attach client machines to it
-- How to add and configure users using organisational units (OUs) and group policy objects (GPO)
-- How to implement network shares that cross shares resources over OUs
+## What I Learned
 
-## Future Enhancements
-- [ ] Add network architecture diagram showing VM topology
-- [ ] Add screenshots illustrating VM configuration steps
-- [ ] Write the Onboarding Script
+### Active Directory Domain Services:
+**Domain creation and configuration**: Set up a Windows Server domain from scratch, including installing AD DS role, promoting to domain controller, and establishing directory structure for centralised authentication and resource management.
 
-## Resources
+**Joining client machines**: Configured DNS settings and joined workstations to the domain, enabling centralised user management where users can authenticate on any domain-joined machine.
+
+### Organisational Units and User Management:
+- **Structuring with OUs**: Created and organised OUs to mirror business structures (e.g., HR, IT, Finance departments), enabling logical grouping of users, computers, and resources for scalable administration.
+
+- **Group Policy Objects**: Created and linked GPOs to specific OUs to enforce configurations and security settings automatically across users and computers, maintaining consistent standards without individual machine configuration.
+
+### Network Resouce Sharing:
+- **Cross-OU network shares**: Configured shared folders with appropriate NTFS and share permissions, enabling secure resource access and collaboration across different organisational units whilst maintaining proper access controls.
+
+### Overall Growth:
+Gained practical understanding of enterprise network architecture and Windows Server administration. Developed skills in domain management, security implementation, and access control from an organisational perspective, directly applicable to real-world IT environments.
+
+## How Can It Be Improved?
+
+- **Automate user provisioning with PowerShell**: Create scripts to bulk-import users from CSV files, automatically assign them to appropriate OUs, and configure group memberships—eliminating manual ADUC work for larger deployments.
+- **Implement certificate services**: Deploy Active Directory Certificate Services (AD CS) to issue SSL certificates for internal services and enable smartcard authentication for enhanced security testing.
+
+## Additional Resources
+
 - [Microsoft AD DS Documentation](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services)
 - [Group Policy Management Guide](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-policy/group-policy-overview)
 - [PowerShell Active Directory Module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/)
 - [Windows Server 2022 ISO](https://www.microsoft.com/en-gb/evalcenter/evaluate-windows-server-2022)
+
+## 📹 Demonstration
+![Embedded Video](path/to/Video.mp4)
